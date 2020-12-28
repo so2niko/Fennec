@@ -2,17 +2,20 @@ import ModelRecord from "./model-record.js";
 import ViewRecord from "./view-record.js";
 
 export default class ControllerRecord{
-    constructor(){
+    constructor({ notify }){
         this.model = new ModelRecord();
         this.view = new ViewRecord(this.onSort, this.onSearch);
 
         this.init();
+
+        this.notify = notify;
     }
 
     init = () => {
         this.model.loadRecords()
             .then(d => {
                 this.view.render(d);
+                this.notify('LOADED_DATA', d);
             });
     }
 

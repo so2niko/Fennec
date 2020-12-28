@@ -17,10 +17,12 @@ export default class ViewRecord{
 <div class="card">
     <div class="card-content">
     <div class="content">
-        <p><span class="has-text-weight-bold">Type:</span> <span>${ fuel }</span> <span>${ count }</span>L</p>
-        <p><span class="has-text-weight-bold">Price:</span> <span>${ price }</span></p>
-        <p><span class="has-text-weight-bold">Date:</span> <span>${ date.toLocaleDateString() }</span></p>
-        <p><span class="has-text-weight-bold">Mileage:</span> <span>${ mileage }</span></p>
+        <p>
+            <span class="has-text-weight-bold">Type:</span> <span>${ fuel }</span> <span>${ count }</span>L
+            <span class="has-text-weight-bold">Price:</span> <span>${ price }</span>
+            <span class="has-text-weight-bold">Date:</span> <span>${ date.toLocaleDateString() }</span>
+            <span class="has-text-weight-bold">Mileage:</span> <span>${ mileage }</span>
+        </p>
     </div>
     </div>
 </div> `;
