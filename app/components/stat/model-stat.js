@@ -1,16 +1,9 @@
 export default class ModelStat{
-    constructor(){
-
-    }
-
     getStat = d => {
         d.sort((a, b) => b.mileage - a.mileage);
-        
-        console.log(d);
 
         const [{ mileage : mileageS, date : dateS }] = d.slice(-1);
         const { mileage : mileageE, date : dateE } = d[0];
-
 
         const shiftMileage = mileageE - mileageS;
         const shiftDays = (dateE - dateS) / (1000 * 60 * 60 * 24);
@@ -18,5 +11,12 @@ export default class ModelStat{
         this.stat = { shiftDays, shiftMileage, mileagePD  };
 
         return this.stat;
+    }
+
+    getBotStat = _ => {
+        const { shiftDays, shiftMileage, mileagePD } = this.stat;
+        return encodeURI(`*mileage :* ${ shiftMileage } km
+*days :* ${ shiftDays }
+*mileage per day :* ${ mileagePD } km/day`.replace(/\./g, ','));
     }
 }

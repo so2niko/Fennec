@@ -1,5 +1,10 @@
 export default class ViewStat{
     htmlStat = document.querySelector('.stat-body');
+    htmlBtnSend = document.querySelector('.btn_stat-send');
+
+    constructor(onSend){
+        this.htmlBtnSend.addEventListener('click', onSend);
+    }
 
     render = stat => {
         const { shiftDays, shiftMileage, mileagePD  } = stat;
