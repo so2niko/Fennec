@@ -1,6 +1,4 @@
 export default class ModelRecord{
-    link = 'https://spreadsheets.google.com/feeds/cells/1xAEHFHVZHHvabXYXMMquZld0urClxbGWxAgJnvB-8cg/1/public/full?alt=json';
-
     records = [];
     names = [
         {
@@ -24,6 +22,11 @@ export default class ModelRecord{
             type : 'float'
         }
     ];
+
+    initTokens = _ => {
+        const token = localStorage.getItem('google');
+        this.link = `https://spreadsheets.google.com/feeds/cells/${ token }/1/public/full?alt=json`;
+    }
 
     loadRecords = () => {
         return fetch(this.link)

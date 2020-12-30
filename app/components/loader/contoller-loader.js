@@ -9,11 +9,16 @@ export default class ContollerLoader{
 
         this.events = events;
 
-        this.view.render();
+        subscribe(events.AUTHORIZED, this.onAuthorized);
+        console.log('inloader');
     }
 
     onLoad = _ => {
         this.unsubscribe(this.events.LOADED_DATA, this.onLoad);
         this.view.hideLoader();
+    }
+
+    onAuthorized = _ => {
+        this.view.render();
     }
 } 

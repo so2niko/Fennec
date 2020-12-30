@@ -1,3 +1,4 @@
+import ControllerAuth from './components/auth/controller-auth.js';
 import ControllerBot from './components/bot/controller-bot.js';
 import ContollerLoader from './components/loader/contoller-loader.js';
 import ControllerRecord from './components/record/controller-record.js';
@@ -11,3 +12,4 @@ const bot = new ControllerBot(publisher.methods);
 const record = new ControllerRecord(publisher.methods);
 const stat = new ControllerStat(publisher.methods);
 const sortSearch = new ControllerSortSearch(publisher.methods);
+const auth = new ControllerAuth(publisher.methods);

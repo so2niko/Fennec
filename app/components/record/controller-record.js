@@ -6,16 +6,17 @@ export default class ControllerRecord{
         this.model = new ModelRecord();
         this.view = new ViewRecord();
 
-        this.init();
-
         this.notify = notify;
         this.events = events;
 
         subscribe(events.AFTER_SEARCH, this.onSortSearch);
         subscribe(events.AFTER_SORT, this.onSortSearch);
+        subscribe(events.AUTHORIZED, this.init);
     }
 
     init = () => {
+        this.model.initTokens();
+        
         this.model.loadRecords()
             .then(d => {
                 this.view.render(d);

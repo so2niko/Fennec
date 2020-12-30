@@ -17,13 +17,10 @@ export default class ViewSortSearch{
         </div>
       </div>`);
 
-      
         this.htmlSort = document.querySelector('.select-sort');
         this.htmlSearch = document.querySelector('.inp-search');
 
-        
         this.htmlSort.addEventListener('input', cbSort);
         this.htmlSearch.addEventListener('input', cbSearch);
-        
     }
 }

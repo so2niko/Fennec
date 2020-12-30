@@ -1,7 +1,6 @@
 .sk-cube-grid {
     width: 100px;
     height: 100px;
-    margin: 35vh auto;
   }
   
   .sk-cube-grid .sk-cube {
@@ -66,4 +65,13 @@
   width: 100vw;
   height: 100vh;  
   background-color: rgba(12, 12, 12, .3);
+  padding-top: 35vh;
+}
+
+.form-auth{
+  background-color: #eee;
+  width: 600px;
+  margin: 0 auto;
+  padding: 33px;
+
 }
