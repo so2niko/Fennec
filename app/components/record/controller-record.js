@@ -2,14 +2,17 @@ import ModelRecord from "./model-record.js";
 import ViewRecord from "./view-record.js";
 
 export default class ControllerRecord{
-    constructor({ notify, events }){
+    constructor({ notify, events, subscribe }){
         this.model = new ModelRecord();
-        this.view = new ViewRecord(this.onSort, this.onSearch);
+        this.view = new ViewRecord();
 
         this.init();
 
         this.notify = notify;
         this.events = events;
+
+        subscribe(events.AFTER_SEARCH, this.onSortSearch);
+        subscribe(events.AFTER_SORT, this.onSortSearch);
     }
 
     init = () => {
@@ -20,15 +23,7 @@ export default class ControllerRecord{
             });
     }
 
-    onSort = ev => {
-        const records = this.model.sort(ev.target.value);
-
-        this.view.render(records);
+    onSortSearch = data => {
+        this.view.render(data);
     }
-
-    onSearch = ev => {
-        const records = this.model.search(ev.target.value);
-        this.view.render(records);
-    }
-
 }

@@ -1,12 +1,5 @@
 export default class ViewRecord{
     htmlCards = document.querySelector('.cards');
-    htmlSort = document.querySelector('.select-sort');
-    htmlSearch = document.querySelector('.inp-search');
-
-    constructor(cbSort, cbSearch){
-        this.htmlSort.addEventListener('input', cbSort);
-        this.htmlSearch.addEventListener('input', cbSearch);
-    }
 
     render = arr => {
         this.htmlCards.innerHTML = arr.map(this.renderCard).join('');
