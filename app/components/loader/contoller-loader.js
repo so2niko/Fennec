@@ -8,6 +8,8 @@ export default class ContollerLoader{
         this.unsubscribe = unsubscribe;
 
         this.events = events;
+
+        this.view.render();
     }
 
     onLoad = _ => {
