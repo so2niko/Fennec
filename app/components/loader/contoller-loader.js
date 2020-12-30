@@ -1,15 +1,17 @@
 import ViewLoader from "./view-loader.js";
 
 export default class ContollerLoader{
-    constructor({ subscribe, unsubscribe }){
+    constructor({ subscribe, unsubscribe, events }){
         this.view = new ViewLoader();
 
-        subscribe('LOADED_DATA', this.onLoad);
+        subscribe(events.LOADED_DATA, this.onLoad);
         this.unsubscribe = unsubscribe;
+
+        this.events = events;
     }
 
     onLoad = _ => {
-        this.unsubscribe('LOADED_DATA', this.onLoad);
+        this.unsubscribe(this.events.LOADED_DATA, this.onLoad);
         this.view.hideLoader();
     }
 } 

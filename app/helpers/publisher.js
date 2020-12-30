@@ -1,3 +1,5 @@
+import events from './events.js';
+
 export default class Publisher{
     listeners = {};
 
@@ -22,10 +24,12 @@ export default class Publisher{
     }
 
     get methods(){
+        console.log(this);
         return {
             notify : this.notify,
             unsubscribe : this.unsubscribe,
-            subscribe : this.subscribe
+            subscribe : this.subscribe,
+            events
         }
     }
 }

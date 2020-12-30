@@ -2,12 +2,13 @@ import ModelStat from "./model-stat.js";
 import ViewStat from "./view-stat.js";
 
 export default class ControllerStat{
-    constructor({ subscribe, notify }){
+    constructor({ subscribe, notify, events }){
         this.model = new ModelStat();
         this.view = new ViewStat(this.onSend);
 
-        subscribe('LOADED_DATA', this.onLoad);
+        subscribe(events.LOADED_DATA, this.onLoad);
         this.notify = notify;
+        this.events = events;
     }
 
     onLoad = d => {
@@ -16,6 +17,6 @@ export default class ControllerStat{
     }
 
     onSend = _ => {
-        this.notify('SEND_MESSAGE', JSON.stringify(this.model.getBotStat()));
+        this.notify(this.events.SEND_MESSAGE, JSON.stringify(this.model.getBotStat()));
     }
 }

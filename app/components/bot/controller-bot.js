@@ -1,10 +1,10 @@
 import ModelBot from "./model-bot.js";
 
 export default class ControllerBot{
-    constructor({ subscribe }){
+    constructor({ subscribe, events }){
         this.model = new ModelBot();
 
-        subscribe('SEND_MESSAGE', this.onSend);
+        subscribe(events.SEND_MESSAGE, this.onSend);
     }
 
     onSend = msg => {
