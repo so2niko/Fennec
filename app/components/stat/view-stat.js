@@ -7,6 +7,8 @@ export default class ViewStat{
             <div class="message-header">
                 <p>Stats </p>
                 <button class="button is-info is-light btn_stat-send">send</button>
+                <button class="button is-danger is-light"
+                data-bs-toggle="modal" data-bs-target="#logOutModal">Log Out</button>
             </div>  
             <div class="message-body stat-body"></div>
         </article>

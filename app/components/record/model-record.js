@@ -51,7 +51,10 @@ export default class ModelRecord{
             acc[index][name] = this.parseContent(content.$t, type);
     
             return acc;       
-        }, []);
+        }, []).map(el => {
+            el.id = (+`${ Date.now() }${ Math.random().toString().slice(3,7) }`).toString(16);
+            return el;
+        });
     }
 
     parseContent = (content, type = 'string') => {
@@ -72,5 +75,9 @@ export default class ModelRecord{
         }
     
         return answ;
+    }
+
+    getRecordById = id => {
+        return this.records.find(el => el.id == id);
     }
 }

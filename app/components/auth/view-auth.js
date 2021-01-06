@@ -1,7 +1,8 @@
 export default class ViewAuth{
     htmlModal = document.querySelector('.loader-container');
+    htmlBtnLogOut = document.querySelector('.btn_log-out');
 
-    constructor(onAuth){
+    constructor(onAuth, onLogOut){
         this.htmlModal.innerHTML = `
 <div class="form-auth">
     <div class="field">
@@ -40,7 +41,7 @@ export default class ViewAuth{
         this.htmlInputs = [...document.querySelectorAll('.auth-input')];
 
         this.htmlAuthBtn.addEventListener('click', onAuth);
-
+        this.htmlBtnLogOut.addEventListener('click', onLogOut);
     }
 
     getInputs = _ => {

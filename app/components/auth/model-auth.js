@@ -13,4 +13,9 @@ export default class ModelAuth{
 
         return is;
     }
+
+    deleteTokens = _ => {
+        localStorage.clear();
+        location.reload();
+    }
 }

@@ -3,7 +3,7 @@ import ViewAuth from "./view-auth.js";
 
 export default class ControllerAuth{
     constructor({ notify, events }){
-        this.view = new ViewAuth(this.onAuth);
+        this.view = new ViewAuth(this.onAuth, this.onLogOut);
         this.model = new ModelAuth();
         
         this.notify = notify;
@@ -22,5 +22,9 @@ export default class ControllerAuth{
         const tokens = this.view.getInputs();
         this.model.setTokens(tokens);
         this.onCheck();
+    }
+
+    onLogOut = _ => {
+        this.model.deleteTokens();
     }
 }
